@@ -1,5 +1,6 @@
 package it.polito.tdp.meteo.bean;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Rilevamento {
@@ -25,6 +26,13 @@ public class Rilevamento {
 
 	public Date getData() {
 		return data;
+	}
+	
+	public int getDayNumber()
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(this.getData());
+		return cal.get(Calendar.DAY_OF_MONTH);
 	}
 
 	public void setData(Date data) {

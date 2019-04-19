@@ -1,11 +1,12 @@
 package it.polito.tdp.meteo.bean;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Citta {
 
 	private String nome;
-	private List<Rilevamento> rilevamenti;
+	private List<Rilevamento> rilevamenti = new LinkedList<Rilevamento>();
 	private int counter = 0;
 	
 	public Citta(String nome) {
@@ -27,6 +28,19 @@ public class Citta {
 
 	public List<Rilevamento> getRilevamenti() {
 		return rilevamenti;
+	}
+	
+	public void printRil()
+	{
+		if(rilevamenti.size() == 0) {
+			System.out.println("vuoto");
+		}
+		else {
+			for(Rilevamento r : rilevamenti) {
+				System.out.println(r.getUmidita());
+			}
+		}
+		
 	}
 
 	public void setRilevamenti(List<Rilevamento> rilevamenti) {
@@ -73,6 +87,10 @@ public class Citta {
 	@Override
 	public String toString() {
 		return nome;
+	}
+
+	public void addRilevamento(Rilevamento r) {
+		this.rilevamenti.add(r);
 	}
 	
 }
